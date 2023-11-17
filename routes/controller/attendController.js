@@ -46,34 +46,6 @@ export const getEventAttendanceRecord = async (req, res) => {
   }
 };
 
-// export const editAttendanceRecord = async (req, res) => {
-//   const attendId = req.params.attendId;
-//   const { userId, eventId } = req.body;
-//   try {
-//     const user = await User.findOne({ _id: mongoose.Types.ObjectId(userId) });
-//     const event = await Event.findOne({
-//       _id: mongoose.Types.ObjectId(eventId),
-//     });
-
-//     if (!user || !event) {
-//       res.status(404).json({ error: `${!user ? "User" : "Event"} not found` });
-//     }
-
-//     const updatedRecord = await Attend.findOneAndUpdate(
-//       { _id: mongoose.Types.ObjectId(attendId) },
-//       { $set: { ...req.body } },
-//       { new: true }
-//     );
-//     if (!updatedRecord) {
-//       res.status(404).json({ error: "Record not found" });
-//     }
-//     res.status(200).json({ updatedRecord });
-//   } catch (error) {
-//     console.log("JSON DATA", error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// };
-
 export const editAttendanceRecord = async (req, res) => {
   const attendId = req.params.attendId;
   const { userId, eventId } = req.body;
